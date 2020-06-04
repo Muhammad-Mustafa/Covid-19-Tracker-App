@@ -6,22 +6,33 @@ import styles from './Chart.module.css';
 
 const Chart = () => {
 
-  const [dailyData, setDailyData] = useState({});
+  const [dailyData, setDailyData] = useState([]);
 
   useEffect(() =>{
     const fetchApi = async () =>{
       setDailyData( await getDailyData());
     }
     fetchApi();
-    // console.log({ dailyData });
-  });
+  },[]);
 
   const Chart = (
-    dailyData[0] ? 
+    dailyData ? 
     (<Line
     data = {{
-      labels: '',
-      datasets: [{}, {}],
+      labels: dailyData.map(({ date }) => date),
+      datasets: [{
+        data: dailyData.map(({confirmed}) => confirmed),
+        label: 'Infected',
+        borderColor: '#3333ff',
+        backgroundColor: 'rgba(0,0,255,0.3)',
+        fill: true,
+      }, {
+        data: dailyData.map(({deaths}) => deaths),
+        label: 'Deaths',
+        borderColor: 'red',
+        backgroundColor: 'rgba(255, 0, 0, 0.8)',
+        fill: true,
+      }],
     }}
     />)
     :null 
@@ -29,7 +40,9 @@ const Chart = () => {
   );
 
   return(
-    <div></div>
+    <div className={styles.container}>
+      {Chart}
+    </div>
   );
 };
 
