@@ -54,6 +54,6 @@ export const fetchCountries = async () => {
     return(countries.map((country) => country.name))
 
   } catch (error) {
-    console.log("eeeeeeeeeeeeeeeeeeee"+error);
+    console.log(error);
   }
 };
