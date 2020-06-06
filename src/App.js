@@ -10,6 +10,8 @@ import {Cards, Chart, CountryPicker} from './components'
 import styles from './App.module.css'
 import { fatchData } from './api'
 
+import coronaImage from './images/image.png'
+
 class App extends Component {
 
   state = {
@@ -28,18 +30,19 @@ class App extends Component {
   handelCountryChange = async (country) => {
     
     const data = await fatchData(country);
-    this.setState({ data: data });
+    this.setState({ data: data, country: country});
 
   }
   render() {
 
-    const {data} = this.state;
+    const {data, country } = this.state;
 
     return (
       <div className={styles.container}>
+          <img ClassName={styles.image} src={coronaImage} alt="COVID-19" /> 
           <Cards data={data} />
           <CountryPicker handelCountryChange={ this.handelCountryChange } />
-          <Chart />
+          <Chart data={ data } country={ country } />
       </div>
     );
   }
