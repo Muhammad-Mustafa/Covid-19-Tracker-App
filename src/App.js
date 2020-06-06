@@ -6,7 +6,7 @@ import React, { Component } from "react";
 
 // import Cards from './components/Cards/Cards';
 
-import {Cards, Chart, CountryPicker} from './components'
+import {Cards, Chart, CountryPicker, Github} from './components'
 import styles from './App.module.css'
 import { fatchData } from './api'
 
@@ -39,10 +39,11 @@ class App extends Component {
 
     return (
       <div className={styles.container}>
-          <img ClassName={styles.image} src={coronaImage} alt="COVID-19" /> 
-          <Cards data={data} />
-          <CountryPicker handelCountryChange={ this.handelCountryChange } />
-          <Chart data={ data } country={ country } />
+        <Github />
+        <img ClassName={styles.image} src={coronaImage} alt="COVID-19" /> 
+        <Cards data={data} />
+        <CountryPicker handelCountryChange={ this.handelCountryChange } />
+        <Chart data={ data } country={ country } />
       </div>
     );
   }

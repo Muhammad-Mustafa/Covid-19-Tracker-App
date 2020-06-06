@@ -1,0 +1,18 @@
+.text{
+    margin: 0px 0px 2% 0px !important;
+    padding: 2% 2% !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    width: 100%;
+    background-color: rgba(0, 255, 0, 0.5);
+}
+
+
+/* .type{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: justify !important;   
+} */
