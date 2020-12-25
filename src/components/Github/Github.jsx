@@ -18,8 +18,7 @@ const Github = () => {
           styles={styles.typo}
         >
           {/* <Link componen="button" > */}
-          Shujaat bhai and mustafa zindabad Click Here For the Github Repository
-          Don't Forget to give me a Star 🌟
+          Click Here For the Github Repository Don't Forget to give me a Star 🌟
           {/* </Link> */}
         </Typography>
       </Link>
